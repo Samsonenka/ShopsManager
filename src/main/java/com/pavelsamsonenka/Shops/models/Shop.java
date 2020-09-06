@@ -1,6 +1,8 @@
 package com.pavelsamsonenka.Shops.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Shop {
@@ -13,18 +15,17 @@ public class Shop {
     private String shopCity;
     private String shopAddress;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "supplier_id")
-    private Supplier supplier;
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "supplier_id")
+//    private Set<Supplier> suppliers = new HashSet<>();
 
     public Shop() {
     }
 
-    public Shop(String shopName, String shopCity, String shopAddress, Supplier supplier) {
+    public Shop(String shopName, String shopCity, String shopAddress) {
         this.shopName = shopName;
         this.shopCity = shopCity;
         this.shopAddress = shopAddress;
-        this.supplier = supplier;
     }
 
     public int getShopID() {
@@ -57,13 +58,5 @@ public class Shop {
 
     public void setShopAddress(String shopAddress) {
         this.shopAddress = shopAddress;
-    }
-
-    public Supplier getSupplier() {
-        return supplier;
-    }
-
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
     }
 }

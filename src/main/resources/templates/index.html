@@ -7,9 +7,26 @@
     <title>Shops Manager</title>
 </head>
 <body>
+
     <div class="link">
         <a th:href="@{/addShop}">Add Shop</a>
         <a th:href="@{/addSupplier}">Add Supplier</a>
     </div>
+
+    <div  class="px-5 py-3">
+        <table class="table table-striped">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">City</th>
+                <th scope="col">Address</th>
+            </tr>
+            <tr scope="col" th:each ="shop : ${shopList}">
+                <td th:utext="${shop.shopName}">...</td>
+                <td th:utext="${shop.shopCity}">...</td>
+                <td th:utext="${shop.shopAddress}">...</td>
+            </tr>
+        </table>
+    </div>
+
 </body>
 </html>

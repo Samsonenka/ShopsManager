@@ -1,6 +1,8 @@
 package com.pavelsamsonenka.Shops.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Supplier {
@@ -13,9 +15,9 @@ public class Supplier {
     private String supplierCity;
     private String supplierAddress;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "product_id")
-    private Product product;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "product_id")
+//    private Set<Shop> shops = new HashSet<>();
 
     public Supplier() {
     }
